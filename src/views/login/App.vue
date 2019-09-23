@@ -10,7 +10,7 @@ export default {
   name: 'login',
   data () {
 	return {
-	  date: new Date()
+	  date: 33
 	}
   }
 }

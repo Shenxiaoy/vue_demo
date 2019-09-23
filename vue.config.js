@@ -29,6 +29,34 @@ module.exports = {
 	]
   },
 
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require('postcss-px-to-viewport')({
+			unitToConvert: "px",
+			viewportWidth: 750,
+			unitPrecision: 3,
+			propList: [
+			  "*"
+			],
+			viewportUnit: "vw",
+			fontViewportUnit: "vw",
+			selectorBlackList: [],
+			minPixelValue: 1,
+			mediaQuery: false,
+			replace: true,
+			exclude: /(\/|\\)(node_modules)(\/|\\)/,
+		  }),
+		  require('postcss-aspect-ratio-mini')(),
+		  require('postcss-write-svg')({
+			uft8: false
+		  })
+		]
+	  }
+	}
+  },
+
   chainWebpack: config => {
 	if (process.env.ANALYZ) {
 	  config.plugin('webpack-bundle-analyzer')
