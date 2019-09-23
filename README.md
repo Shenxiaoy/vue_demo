@@ -36,14 +36,22 @@ module.exports = {
 -----------------------
 
 ## 使用postcss 的插件来做兼容适配处理
-- postcss-import
-- postcss-url
--postcss-aspect-ratio-mini
+- postcss-import           vue/cli已默认安装
+- postcss-url              vue/cli已默认安装
+- postcss-aspect-ratio-mini
 - postcss-write-svg
-- postcss-cssnext
-- autoprefixer
+- postcss-cssnext          该插件可以让我们使用CSS未来的特性，其会对这些特性做相关的兼容性处理
+- autoprefixer             vue/cli已默认安装
 - postcss-px-to-viewport
-- cssnano
+- cssnano                  主要用来压缩和清理CSS代码
+```css
+/*autoprefixer 被重复调用，*/
+"cssnano": {
+   "autoprefixer": false,
+   "postcss-zindex": false  /*只要启用了这个插件，z-index的值就会重置为1，所以设置为false*/
+}
+```
+- browserslist 设置浏览器的兼容范围
 - postcss-viewport-units
 - viewport-units-buggyfill
 > postcss-viewport-units 和 viewport-units-buggyfill 是为处理vh vw兼容问题，而viewport-units-buggyfill更多的功能是兼容IE和Safari
@@ -133,9 +141,34 @@ css: {
 
 -----------------
 
+### 首页优化方案
+- SSR
+- 通过 puppeteer、phantomJs 无头浏览器生成html返回，需要服务端支持
+- prerender-spa-plugin 依赖于puppeteer和路由模式设置为browserRouter
+> 参考 [vue预渲染之prerender-spa-plugin解析](https://blog.csdn.net/a460550542/article/details/88579721)
+> 参考 [使用预渲提升 SPA 应用体验](http://www.javanx.cn/20190904/spa/)
+
+### 手势库
+- hammer.js
+- AlloyFinger
+
+### 调试控制台
+- vconsole
+- eruda
+
+### 抓包工具
+- charles
+> [下载地址](https://www.charlesproxy.com/download/)
+> [使用教程](https://juejin.im/post/5a1033d2f265da431f4aa81f)
+- fiddler
+
+### 异常监控平台 【sentry】
 
 
 
+
+##### 来源
+[参考](https://mp.weixin.qq.com/s?__biz=MzUyNDYxNDAyMg==&mid=2247484656&idx=1&sn=ce3aa8b0046a53930fcb5931c5d2c7f7&chksm=fa2be419cd5c6d0f25bccee079c36bc0e47af37fc9d987dd2abf9c3be25e0f4d9bdac867c2a3&mpshare=1&scene=1&srcid=&sharer_sharetime=1568620958972&sharer_shareid=fe4836100d04d765272ad5873b1cfd78&key=5418d699bf014e6146d316929d578e59c5b3531821d002b0b061931ced88bbf19117568793e5eb5ffef7b98fdecc1d23a08936b52b1936c13c82f7afd3030da6df4c99db144c4c217751f45af1f3a9aa&ascene=1&uin=MTgyMjcxMjc0Mw%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&pass_ticket=y04Kq06U3lj3%2FJZnWWGFgQrFVeKbKcV9wJvTWHEiM8tk%2F5IK%2B4DIsYmdjzPOc18g)
 
 
 
