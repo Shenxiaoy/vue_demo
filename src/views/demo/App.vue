@@ -14,16 +14,21 @@
 		<div class="aspect-box">
 			<div class="one">test1</div>
 			<div>test2</div>
+
 		</div>
+		<router-view />
 	</div>
 </template>
 
 <script>
+import ass from 'static/logo.png'
+console.log(process.env.NODE_ENV)
 export default {
   name: 'demo',
   data () {
 	return {
-	  date: 22
+	  date: 22,
+	  src: ass
 	}
   }
 }

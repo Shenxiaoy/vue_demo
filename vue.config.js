@@ -26,7 +26,14 @@ module.exports = {
 		// dll过程生成的manifest文件
 		manifest: require(path.join(process.cwd(), "public", "vendor-manifest.json"))
 	  })
-	]
+	],
+	resolve: {
+	  extensions: ['.js', '.vue', '.json'],
+	  alias: {
+		'static': path.resolve(__dirname, 'src/assets'),
+		'@': path.resolve(__dirname, 'src')
+	  }
+	},
   },
 
   css: {

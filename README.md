@@ -141,6 +141,36 @@ css: {
 
 -----------------
 
+### 使用 vant 框架
+- 安装vant
+```js
+npm install vant --save
+```
+- 按需加载使用组件
+> 在babel.config.js中加入以下代码
+```js
+module.exports = {
+  plugins: [
+    ['import', {
+      libraryName: 'vant',
+      libraryDirectory: 'es',
+      style: true
+    }, 'vant']
+  ]
+};
+```
+- 也可以手动引入组件
+```js
+import Button from 'vant/lib/button';
+import 'vant/lib/button/style';
+```
+
+### 路由按需加载
+通过import 去引入组件，做到按需加载响应路由的js
+```js
+const Test = import('../test/index.vue')
+```
+
 ### 首页优化方案
 - SSR
 - 通过 puppeteer、phantomJs 无头浏览器生成html返回，需要服务端支持
@@ -163,8 +193,6 @@ css: {
 - fiddler
 
 ### 异常监控平台 【sentry】
-
-
 
 
 ##### 来源
